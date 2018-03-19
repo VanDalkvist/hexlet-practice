@@ -1,10 +1,11 @@
 {
-  "name": "practice",
+  "name": "hexlete-practice",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "npm i -g tape",
+    "test-runner": "node auto-test-runner.js .\\"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +15,6 @@
     "tape": "^4.9.0"
   },
   "devDependencies": {
-    "tap-dot": "^1.0.5",
-    "tap-min": "^1.2.2"
+    "tap-dot": "^1.0.5"
   }
 }
