@@ -5,11 +5,11 @@ const debounce = require('debounce');
 
 let [node, command, fileName, reporter, ...rest] = process.argv;
 
-console.log('defaults : ', node, command, fileName, reporter, rest);
+console.debug('defaults : ', node, command, fileName, reporter, rest);
 
 reporter = reporter || 'tap-dot';
 
-console.log('command  : ', node, command, fileName, reporter, rest);
+console.info('command  : ', node, command, fileName, reporter, rest);
 
 if (!fileName) {
     throw new Error("You must specify a file name or directory.");
@@ -20,8 +20,10 @@ const exceptions = ['.idea', 'auto-test-runner', 'package', '.git'];
 let hash = {};
 
 fs.watch(fileName, {}, (eventType, name) => {
+    console.debug(eventType, name);
+
     if (eventType !== 'change') return;
-    if (exceptions.find((e) => name.match(e))) return;
+    if (exceptions.find((e) => name.includes(e))) return;
 
     let execute = hash[name];
     if (execute) {
@@ -38,14 +40,14 @@ function _runTests(name) {
     let reporterPath = path.join('node_modules', '.bin', reporter);
     let command = `tape ${tests} | ${reporterPath}`;
 
-    console.log(`[${name}] running command: ${command}`);
+    console.log(`[${name}] running command: ${command}\n`);
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`failed: ${error}`);
         }
 
-        console.log(`stdout [${name}]: ${stdout}`);
-        console.log(`stderr [${name}]: ${stderr}`);
+        console.info(`stdout [${name}]: ${stdout}`);
+        console.error(`stderr [${name}]: ${stderr}`);
     });
 }
