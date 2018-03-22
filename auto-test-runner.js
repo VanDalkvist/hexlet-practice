@@ -38,7 +38,8 @@ fs.watch(fileName, {}, (eventType, name) => {
 function _runTests(name) {
     let tests = path.join(name, '**', '*.test.js');
     let reporterPath = path.join('node_modules', '.bin', reporter);
-    let command = `tape ${tests} | ${reporterPath}`;
+    let tapePath = path.join('node_modules', '.bin', 'tape');
+    let command = `${tapePath} ${tests} | ${reporterPath}`;
 
     console.log(`[${name}] running command: ${command}\n`);
 

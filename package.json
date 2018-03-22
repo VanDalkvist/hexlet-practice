@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "npm i -g tape",
     "test-runner": "node auto-test-runner.js .\\"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "debounce": "^1.1.0",
-    "npm": "^5.6.0",
+    "npm": "^5.7.1",
     "tape": "^4.9.0"
   },
   "devDependencies": {
