@@ -3,7 +3,7 @@ module.exports = function _isHappyTicket(ticket) {
     const number = ticket.toString();
 
     if (number.length !== 6) {
-        throw new Error("Ticket should has six digits.");
+        return false;
     }
 
     const first = number.substring(0, 3);

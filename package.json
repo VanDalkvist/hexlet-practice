@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-runner": "node auto-test-runner.js .\\"
+    "test": "node auto-test-runner.js .\\"
   },
   "author": "",
   "license": "ISC",

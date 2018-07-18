@@ -3,20 +3,14 @@ function _sumOfSquares(array) {
 }
 
 function _diffOfSums(n) {
-    let arr = Array.from(Array(n).keys()).map(number => number + 1);
+    const arr = Array.from(Array(n).keys()).map(number => number + 1);
 
-    console.debug(arr);
-
-    let squareOfSum = arr.reduce((accumulator, current) => accumulator + current, 0) ** 2;
-    let sumOfSquares = _sumOfSquares(arr);
-
-    console.log('squareOfSum: ' + squareOfSum);
-    console.log('sumOfSquares: ' + sumOfSquares);
+    const squareOfSum = arr.reduce((accumulator, current) => accumulator + current, 0) ** 2;
+    const sumOfSquares = _sumOfSquares(arr);
 
     return squareOfSum - sumOfSquares;
 }
 
 module.exports = {
-    sumOfSquares: _sumOfSquares,
     diff: _diffOfSums
 };

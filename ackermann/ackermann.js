@@ -1,6 +1,6 @@
 module.exports = function _ackermann(m, n) {
     if (m < 0 || n < 0) {
-        throw new Error('Does not support');
+        return undefined;
     }
 
     if (m === 0) {

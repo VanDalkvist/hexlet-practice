@@ -1,10 +1,14 @@
 module.exports = function withoutTwoZeros(zeroCount, oneCount) {
+    if (oneCount === 1) return 0;
+
     const count = zeroCount + oneCount;
     if (zeroCount === 1 || zeroCount === 0) {
         return _combinations(count, zeroCount);
     }
 
-    return _combinations(count, 2) - (count - 1);
+    const combinationCount = _combinations(count, 2);
+    console.error(combinationCount);
+    return combinationCount - (count - 1);
 };
 
 function _combinations(n, k) {

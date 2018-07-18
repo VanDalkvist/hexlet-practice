@@ -1,6 +1,6 @@
 module.exports = function (str) {
     function _invert(str) {
-        if (str.length === 1) {
+        if (str.length <= 1) {
             return str;
         }
 

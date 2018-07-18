@@ -1,6 +1,6 @@
 module.exports = function* _fizzBuzz(start, end) {
 
-    if (end - start <= 0) {
+    if (end - start < 0) {
         throw new Error('Invalid range.');
     }
 
